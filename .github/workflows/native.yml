@@ -83,9 +83,8 @@ jobs:
         run: task native:standalone-build
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
-        working-directory: standalone/dist
         with:
-          files: $NATIVE_IMAGE_NAME
+          files: standalone/dist/$NATIVE_IMAGE_NAME
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}                 
 
