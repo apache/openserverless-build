@@ -85,12 +85,7 @@
 },
 {
   "name":"akka.actor.ActorCell",
-  "fields":[
-    {"name":"akka$actor$dungeon$Children$$_childrenRefsDoNotCallMeDirectly"}, 
-    {"name":"akka$actor$dungeon$Children$$_functionRefsDoNotCallMeDirectly"}, 
-    {"name":"akka$actor$dungeon$Children$$_nextNameDoNotCallMeDirectly"}, 
-    {"name":"akka$actor$dungeon$Dispatch$$_mailboxDoNotCallMeDirectly"}
-  ]
+  "fields":[{"name":"akka$actor$dungeon$Children$$_childrenRefsDoNotCallMeDirectly"}, {"name":"akka$actor$dungeon$Children$$_functionRefsDoNotCallMeDirectly"}, {"name":"akka$actor$dungeon$Children$$_nextNameDoNotCallMeDirectly"}, {"name":"akka$actor$dungeon$Dispatch$$_mailboxDoNotCallMeDirectly"}]
 },
 {
   "name":"akka.actor.ActorIdentity"
@@ -159,10 +154,7 @@
 },
 {
   "name":"akka.actor.RepointableActorRef",
-  "fields":[
-    {"name":"_cellDoNotCallMeDirectly"}, 
-    {"name":"_lookupDoNotCallMeDirectly"}
-  ]
+  "fields":[{"name":"_cellDoNotCallMeDirectly"}, {"name":"_lookupDoNotCallMeDirectly"}]
 },
 {
   "name":"akka.actor.Status$Failure"
@@ -195,7 +187,8 @@
 },
 {
   "name":"akka.cluster.ClusterJmx$$anon$1",
-  "queryAllPublicConstructors":true
+  "queryAllPublicConstructors":true,
+  "methods":[{"name":"cacheMBeanInfo","parameterTypes":["javax.management.MBeanInfo"] }, {"name":"getCachedMBeanInfo","parameterTypes":[] }, {"name":"getMBeanInfo","parameterTypes":[] }]
 },
 {
   "name":"akka.cluster.ClusterMessage"
@@ -285,10 +278,7 @@
 },
 {
   "name":"akka.dispatch.AbstractBoundedNodeQueue",
-  "fields":[
-    {"name":"_deqDoNotCallMeDirectly"}, 
-    {"name":"_enqDoNotCallMeDirectly"}
-  ]
+  "fields":[{"name":"_deqDoNotCallMeDirectly"}, {"name":"_enqDoNotCallMeDirectly"}]
 },
 {
   "name":"akka.dispatch.AbstractBoundedNodeQueue$Node",
@@ -318,18 +308,16 @@
   "name":"akka.dispatch.DequeBasedMessageQueueSemantics"
 },
 {
+  "name":"akka.dispatch.Dispatcher",
+  "fields":[{"name":"executorServiceDelegate"}]
+},
+{
   "name":"akka.dispatch.Mailbox",
-  "fields":[
-    {"name":"_statusDoNotCallMeDirectly"}, 
-    {"name":"_systemQueueDoNotCallMeDirectly"}
-  ]
+  "fields":[{"name":"_statusDoNotCallMeDirectly"}, {"name":"_systemQueueDoNotCallMeDirectly"}]
 },
 {
   "name":"akka.dispatch.MessageDispatcher",
-  "fields":[
-    {"name":"_inhabitantsDoNotCallMeDirectly"}, 
-    {"name":"_shutdownScheduleDoNotCallMeDirectly"}
-  ]
+  "fields":[{"name":"_inhabitantsDoNotCallMeDirectly"}, {"name":"_shutdownScheduleDoNotCallMeDirectly"}]
 },
 {
   "name":"akka.dispatch.MultipleConsumerSemantics"
@@ -427,13 +415,13 @@
 },
 {
   "name":"akka.pattern.PromiseActorRef",
-  "fields":[
-    {"name":"_stateDoNotCallMeDirectly"}, 
-    {"name":"_watchedByDoNotCallMeDirectly"}
-  ]
+  "fields":[{"name":"_stateDoNotCallMeDirectly"}, {"name":"_watchedByDoNotCallMeDirectly"}]
 },
 {
   "name":"akka.pattern.StatusReply"
+},
+{
+  "name":"akka.protobuf.GeneratedMessage"
 },
 {
   "name":"akka.protobufv3.internal.ExtensionRegistry",
@@ -652,12 +640,20 @@
   "methods":[{"name":"setEncoder","parameterTypes":["ch.qos.logback.core.encoder.Encoder"] }]
 },
 {
+  "name":"ch.qos.logback.core.encoder.Encoder",
+  "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
+},
+{
   "name":"ch.qos.logback.core.encoder.LayoutWrappingEncoder",
   "methods":[{"name":"setParent","parameterTypes":["ch.qos.logback.core.spi.ContextAware"] }]
 },
 {
   "name":"ch.qos.logback.core.pattern.PatternLayoutEncoderBase",
   "methods":[{"name":"setPattern","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"ch.qos.logback.core.spi.ContextAware",
+  "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
 },
 {
   "name":"com.github.benmanes.caffeine.cache.BBHeader$ReadAndWriteCounterRef",
@@ -685,10 +681,7 @@
 },
 {
   "name":"com.github.benmanes.caffeine.cache.PD",
-  "fields":[
-    {"name":"key"}, 
-    {"name":"value"}
-  ]
+  "fields":[{"name":"key"}, {"name":"value"}]
 },
 {
   "name":"com.github.benmanes.caffeine.cache.PDA",
@@ -709,14 +702,7 @@
 },
 {
   "name":"com.github.benmanes.caffeine.cache.SIMS",
-  "fields":[
-    {"name":"edenMaximum"}, 
-    {"name":"edenWeightedSize"}, 
-    {"name":"mainProtectedMaximum"}, 
-    {"name":"mainProtectedWeightedSize"}, 
-    {"name":"maximum"}, 
-    {"name":"weightedSize"}
-  ]
+  "fields":[{"name":"edenMaximum"}, {"name":"edenWeightedSize"}, {"name":"mainProtectedMaximum"}, {"name":"mainProtectedWeightedSize"}, {"name":"maximum"}, {"name":"weightedSize"}]
 },
 {
   "name":"com.github.benmanes.caffeine.cache.SIMSW",
@@ -733,6 +719,34 @@
   "name":"com.google.protobuf.GeneratedMessageV3"
 },
 {
+  "name":"com.sun.crypto.provider.AESCipher$General",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.ARCFOURCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DESCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DESedeCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DHParameters",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.GaloisCounterMode$AESGCM",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"com.sun.crypto.provider.TlsMasterSecretGenerator",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -747,10 +761,7 @@
 {
   "name":"com.sun.management.GcInfo",
   "queryAllPublicMethods":true,
-  "fields":[
-    {"name":"builder"}, 
-    {"name":"extAttributes"}
-  ],
+  "fields":[{"name":"builder"}, {"name":"extAttributes"}],
   "methods":[{"name":"getMemoryUsageBeforeGc","parameterTypes":[] }]
 },
 {
@@ -822,6 +833,10 @@
   "fields":[{"name":"TYPE"}]
 },
 {
+  "name":"java.lang.Deprecated",
+  "queryAllPublicMethods":true
+},
+{
   "name":"java.lang.Double",
   "fields":[{"name":"TYPE"}]
 },
@@ -839,11 +854,7 @@
 },
 {
   "name":"java.lang.Object",
-  "methods":[
-    {"name":"equals","parameterTypes":["java.lang.Object"] }, 
-    {"name":"hashCode","parameterTypes":[] }, 
-    {"name":"toString","parameterTypes":[] }
-  ]
+  "methods":[{"name":"equals","parameterTypes":["java.lang.Object"] }, {"name":"hashCode","parameterTypes":[] }, {"name":"toString","parameterTypes":[] }]
 },
 {
   "name":"java.lang.RuntimePermission"
@@ -858,7 +869,7 @@
 },
 {
   "name":"java.lang.String",
-  "fields":[{"name":"value"}]
+  "fields":[{"name":"TYPE"}, {"name":"value"}]
 },
 {
   "name":"java.lang.Thread",
@@ -874,25 +885,15 @@
 },
 {
   "name":"java.lang.invoke.MethodHandle",
-  "methods":[
-    {"name":"bindTo","parameterTypes":["java.lang.Object"] }, 
-    {"name":"invokeWithArguments","parameterTypes":["java.lang.Object[]"] }
-  ]
+  "methods":[{"name":"bindTo","parameterTypes":["java.lang.Object"] }, {"name":"invokeWithArguments","parameterTypes":["java.lang.Object[]"] }]
 },
 {
   "name":"java.lang.invoke.MethodHandles",
-  "methods":[
-    {"name":"lookup","parameterTypes":[] }, 
-    {"name":"privateLookupIn","parameterTypes":["java.lang.Class","java.lang.invoke.MethodHandles$Lookup"] }
-  ]
+  "methods":[{"name":"lookup","parameterTypes":[] }, {"name":"privateLookupIn","parameterTypes":["java.lang.Class","java.lang.invoke.MethodHandles$Lookup"] }]
 },
 {
   "name":"java.lang.invoke.MethodHandles$Lookup",
-  "methods":[
-    {"name":"findSpecial","parameterTypes":["java.lang.Class","java.lang.String","java.lang.invoke.MethodType","java.lang.Class"] }, 
-    {"name":"in","parameterTypes":["java.lang.Class"] }, 
-    {"name":"unreflectSpecial","parameterTypes":["java.lang.reflect.Method","java.lang.Class"] }
-  ]
+  "methods":[{"name":"findSpecial","parameterTypes":["java.lang.Class","java.lang.String","java.lang.invoke.MethodType","java.lang.Class"] }, {"name":"in","parameterTypes":["java.lang.Class"] }, {"name":"unreflectSpecial","parameterTypes":["java.lang.reflect.Method","java.lang.Class"] }]
 },
 {
   "name":"java.lang.invoke.MethodType",
@@ -946,12 +947,7 @@
 {
   "name":"java.lang.management.PlatformLoggingMXBean",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"getLoggerLevel","parameterTypes":["java.lang.String"] }, 
-    {"name":"getLoggerNames","parameterTypes":[] }, 
-    {"name":"getParentLoggerName","parameterTypes":["java.lang.String"] }, 
-    {"name":"setLoggerLevel","parameterTypes":["java.lang.String","java.lang.String"] }
-  ]
+  "methods":[{"name":"getLoggerLevel","parameterTypes":["java.lang.String"] }, {"name":"getLoggerNames","parameterTypes":[] }, {"name":"getParentLoggerName","parameterTypes":["java.lang.String"] }, {"name":"setLoggerLevel","parameterTypes":["java.lang.String","java.lang.String"] }]
 },
 {
   "name":"java.lang.management.RuntimeMXBean",
@@ -963,10 +959,7 @@
 },
 {
   "name":"java.lang.reflect.Method",
-  "methods":[
-    {"name":"isDefault","parameterTypes":[] }, 
-    {"name":"isVarArgs","parameterTypes":[] }
-  ]
+  "methods":[{"name":"isDefault","parameterTypes":[] }, {"name":"isVarArgs","parameterTypes":[] }]
 },
 {
   "name":"java.math.BigDecimal"
@@ -998,9 +991,6 @@
   "name":"java.security.KeyStoreSpi"
 },
 {
-  "name":"java.security.MessageDigestSpi"
-},
-{
   "name":"java.security.SecureRandomParameters"
 },
 {
@@ -1023,7 +1013,27 @@
   "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String"] }]
 },
 {
+  "name":"java.util.concurrent.ForkJoinTask",
+  "fields":[{"name":"aux"}, {"name":"status"}]
+},
+{
   "name":"java.util.concurrent.TimeoutException"
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicBoolean",
+  "fields":[{"name":"value"}]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicMarkableReference",
+  "fields":[{"name":"pair"}]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicReference",
+  "fields":[{"name":"value"}]
+},
+{
+  "name":"java.util.concurrent.atomic.Striped64",
+  "fields":[{"name":"base"}, {"name":"cellsBusy"}]
 },
 {
   "name":"java.util.logging.LogManager",
@@ -1046,6 +1056,10 @@
   "name":"javax.management.ObjectName"
 },
 {
+  "name":"javax.management.StandardEmitterMBean",
+  "methods":[{"name":"cacheMBeanInfo","parameterTypes":["javax.management.MBeanInfo"] }, {"name":"getCachedMBeanInfo","parameterTypes":[] }, {"name":"getMBeanInfo","parameterTypes":[] }]
+},
+{
   "name":"javax.management.openmbean.CompositeData"
 },
 {
@@ -1058,6 +1072,9 @@
   "name":"javax.security.auth.x500.X500Principal",
   "fields":[{"name":"thisX500Name"}],
   "methods":[{"name":"<init>","parameterTypes":["sun.security.x509.X500Name"] }]
+},
+{
+  "name":"javax.smartcardio.CardPermission"
 },
 {
   "name":"jdk.management.jfr.ConfigurationInfo",
@@ -1073,7 +1090,8 @@
 },
 {
   "name":"jdk.management.jfr.FlightRecorderMXBeanImpl",
-  "queryAllPublicConstructors":true
+  "queryAllPublicConstructors":true,
+  "methods":[{"name":"cacheMBeanInfo","parameterTypes":["javax.management.MBeanInfo"] }, {"name":"getCachedMBeanInfo","parameterTypes":[] }, {"name":"getMBeanInfo","parameterTypes":[] }, {"name":"getNotificationInfo","parameterTypes":[] }]
 },
 {
   "name":"jdk.management.jfr.RecordingInfo",
@@ -1082,6 +1100,9 @@
 {
   "name":"jdk.management.jfr.SettingDescriptorInfo",
   "queryAllPublicMethods":true
+},
+{
+  "name":"kamon.bundle.Bundle"
 },
 {
   "name":"kamon.instrumentation.system.jvm.JvmMetricsCollector$Factory",
@@ -1093,10 +1114,7 @@
 },
 {
   "name":"kamon.jsr166.Striped64",
-  "fields":[
-    {"name":"base"}, 
-    {"name":"cellsBusy"}
-  ]
+  "fields":[{"name":"base"}, {"name":"cellsBusy"}]
 },
 {
   "name":"kamon.lib.org.jctools.queues.MpscArrayQueueConsumerIndexField",
@@ -1119,15 +1137,26 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"kanela.agent.api.instrumentation.listener.InstrumentationRegistryListener"
+},
+{
+  "name":"libcore.io.Memory"
+},
+{
+  "name":"org.HdrHistogram.ShadedAbstractHistogram",
+  "fields":[{"name":"maxValue"}, {"name":"minNonZeroValue"}]
+},
+{
+  "name":"org.HdrHistogram.ShadedAtomicHistogram",
+  "fields":[{"name":"totalCount"}]
+},
+{
   "name":"org.agrona.concurrent.AbstractConcurrentArrayQueueConsumer",
   "fields":[{"name":"head"}]
 },
 {
   "name":"org.agrona.concurrent.AbstractConcurrentArrayQueueProducer",
-  "fields":[
-    {"name":"sharedHeadCache"}, 
-    {"name":"tail"}
-  ]
+  "fields":[{"name":"sharedHeadCache"}, {"name":"tail"}]
 },
 {
   "name":"org.apache.openwhisk.common.ConfigMXBean",
@@ -1144,14 +1173,22 @@
 {
   "name":"org.apache.openwhisk.core.cli.Conf",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"configFile","parameterTypes":[] }, 
-    {"name":"timeout","parameterTypes":[] }, 
-    {"name":"verbose","parameterTypes":[] }
-  ]
+  "methods":[{"name":"configFile","parameterTypes":[] }, {"name":"timeout","parameterTypes":[] }, {"name":"verbose","parameterTypes":[] }]
 },
 {
-  "name":"org.apache.openwhisk.core.connector.ActivationMessage"
+  "name":"org.apache.openwhisk.core.connector.ActivationMessage",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"org.apache.openwhisk.core.connector.CompletionMessage",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"org.apache.openwhisk.core.connector.ResultMessage",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true
 },
 {
   "name":"org.apache.openwhisk.core.containerpool.docker.DockerCliLogStoreProvider$",
@@ -1169,11 +1206,7 @@
   "name":"org.apache.openwhisk.core.database.ActivationStoreLevel$",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"STORE_ALWAYS","parameterTypes":[] }, 
-    {"name":"STORE_FAILURES","parameterTypes":[] }, 
-    {"name":"STORE_FAILURES_NOT_APPLICATION_ERRORS","parameterTypes":[] }
-  ]
+  "methods":[{"name":"STORE_ALWAYS","parameterTypes":[] }, {"name":"STORE_FAILURES","parameterTypes":[] }, {"name":"STORE_FAILURES_NOT_APPLICATION_ERRORS","parameterTypes":[] }]
 },
 {
   "name":"org.apache.openwhisk.core.database.ArtifactActivationStoreProvider$",
@@ -1186,14 +1219,7 @@
 {
   "name":"org.apache.openwhisk.core.database.LimitsCommand$$anon$1",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"allowedKinds","parameterTypes":[] }, 
-    {"name":"concurrentInvocations","parameterTypes":[] }, 
-    {"name":"firesPerMinute","parameterTypes":[] }, 
-    {"name":"invocationsPerMinute","parameterTypes":[] }, 
-    {"name":"namespace","parameterTypes":[] }, 
-    {"name":"storeActivations","parameterTypes":[] }
-  ]
+  "methods":[{"name":"allowedKinds","parameterTypes":[] }, {"name":"concurrentInvocations","parameterTypes":[] }, {"name":"firesPerMinute","parameterTypes":[] }, {"name":"invocationsPerMinute","parameterTypes":[] }, {"name":"namespace","parameterTypes":[] }, {"name":"storeActivations","parameterTypes":[] }]
 },
 {
   "name":"org.apache.openwhisk.core.database.LimitsCommand$$anon$2",
@@ -1209,13 +1235,7 @@
   "name":"org.apache.openwhisk.core.database.MultipleReadersSingleWriterCache$State$",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"Cached","parameterTypes":[] }, 
-    {"name":"InvalidateInProgress","parameterTypes":[] }, 
-    {"name":"InvalidateWhenDone","parameterTypes":[] }, 
-    {"name":"ReadInProgress","parameterTypes":[] }, 
-    {"name":"WriteInProgress","parameterTypes":[] }
-  ]
+  "methods":[{"name":"Cached","parameterTypes":[] }, {"name":"InvalidateInProgress","parameterTypes":[] }, {"name":"InvalidateWhenDone","parameterTypes":[] }, {"name":"ReadInProgress","parameterTypes":[] }, {"name":"WriteInProgress","parameterTypes":[] }]
 },
 {
   "name":"org.apache.openwhisk.core.database.UserCommand",
@@ -1224,19 +1244,12 @@
 {
   "name":"org.apache.openwhisk.core.database.UserCommand$$anon$1",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"namespace","parameterTypes":[] }, 
-    {"name":"subject","parameterTypes":[] }
-  ]
+  "methods":[{"name":"namespace","parameterTypes":[] }, {"name":"subject","parameterTypes":[] }]
 },
 {
   "name":"org.apache.openwhisk.core.database.UserCommand$$anon$2",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"all","parameterTypes":[] }, 
-    {"name":"namespace","parameterTypes":[] }, 
-    {"name":"subject","parameterTypes":[] }
-  ]
+  "methods":[{"name":"all","parameterTypes":[] }, {"name":"namespace","parameterTypes":[] }, {"name":"subject","parameterTypes":[] }]
 },
 {
   "name":"org.apache.openwhisk.core.database.UserCommand$$anon$3",
@@ -1246,12 +1259,7 @@
 {
   "name":"org.apache.openwhisk.core.database.UserCommand$$anon$4",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"all","parameterTypes":[] }, 
-    {"name":"key","parameterTypes":[] }, 
-    {"name":"namespace","parameterTypes":[] }, 
-    {"name":"pick","parameterTypes":[] }
-  ]
+  "methods":[{"name":"all","parameterTypes":[] }, {"name":"key","parameterTypes":[] }, {"name":"namespace","parameterTypes":[] }, {"name":"pick","parameterTypes":[] }]
 },
 {
   "name":"org.apache.openwhisk.core.database.UserCommand$$anon$5",
@@ -1266,13 +1274,7 @@
 {
   "name":"org.apache.openwhisk.core.database.UserCommand$CreateUserCmd",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"auth","parameterTypes":[] }, 
-    {"name":"force","parameterTypes":[] }, 
-    {"name":"namespace","parameterTypes":[] }, 
-    {"name":"revoke","parameterTypes":[] }, 
-    {"name":"subject","parameterTypes":[] }
-  ]
+  "methods":[{"name":"auth","parameterTypes":[] }, {"name":"force","parameterTypes":[] }, {"name":"namespace","parameterTypes":[] }, {"name":"revoke","parameterTypes":[] }, {"name":"subject","parameterTypes":[] }]
 },
 {
   "name":"org.apache.openwhisk.core.database.memory.MemoryArtifactStoreProvider$",
@@ -1299,6 +1301,11 @@
 },
 {
   "name":"org.apache.openwhisk.core.entity.Attachments$Attached",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"org.apache.openwhisk.core.entity.Binding",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true
 },
@@ -1373,6 +1380,11 @@
   "queryAllPublicMethods":true
 },
 {
+  "name":"org.apache.openwhisk.core.entity.WhiskPackagePut",
+  "allDeclaredFields":true,
+  "queryAllPublicMethods":true
+},
+{
   "name":"org.apache.openwhisk.core.entity.WhiskRule",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true
@@ -1402,32 +1414,10 @@
 {
   "name":"org.apache.openwhisk.standalone.Conf",
   "queryAllPublicMethods":true,
-  "methods":[
-    {"name":"all","parameterTypes":[] }, 
-    {"name":"apiGw","parameterTypes":[] }, 
-    {"name":"apiGwPort","parameterTypes":[] }, 
-    {"name":"clean","parameterTypes":[] }, 
-    {"name":"configFile","parameterTypes":[] }, 
-    {"name":"couchdb","parameterTypes":[] }, 
-    {"name":"dataDir","parameterTypes":[] }, 
-    {"name":"devKcf","parameterTypes":[] }, 
-    {"name":"devMode","parameterTypes":[] }, 
-    {"name":"devUserEventsPort","parameterTypes":[] }, 
-    {"name":"disableColorLogging","parameterTypes":[] }, 
-    {"name":"enableBootstrap","parameterTypes":[] }, 
-    {"name":"kafka","parameterTypes":[] }, 
-    {"name":"kafkaDockerPort","parameterTypes":[] }, 
-    {"name":"kafkaPort","parameterTypes":[] }, 
-    {"name":"kafkaUi","parameterTypes":[] }, 
-    {"name":"manifest","parameterTypes":[] }, 
-    {"name":"noBrowser","parameterTypes":[] }, 
-    {"name":"noUi","parameterTypes":[] }, 
-    {"name":"port","parameterTypes":[] }, 
-    {"name":"uiPort","parameterTypes":[] }, 
-    {"name":"userEvents","parameterTypes":[] }, 
-    {"name":"verbose","parameterTypes":[] }, 
-    {"name":"zkPort","parameterTypes":[] }
-  ]
+  "methods":[{"name":"all","parameterTypes":[] }, {"name":"apiGw","parameterTypes":[] }, {"name":"apiGwPort","parameterTypes":[] }, {"name":"clean","parameterTypes":[] }, {"name":"configFile","parameterTypes":[] }, {"name":"couchdb","parameterTypes":[] }, {"name":"dataDir","parameterTypes":[] }, {"name":"devKcf","parameterTypes":[] }, {"name":"devMode","parameterTypes":[] }, {"name":"devUserEventsPort","parameterTypes":[] }, {"name":"disableColorLogging","parameterTypes":[] }, {"name":"enableBootstrap","parameterTypes":[] }, {"name":"kafka","parameterTypes":[] }, {"name":"kafkaDockerPort","parameterTypes":[] }, {"name":"kafkaPort","parameterTypes":[] }, {"name":"kafkaUi","parameterTypes":[] }, {"name":"manifest","parameterTypes":[] }, {"name":"noBrowser","parameterTypes":[] }, {"name":"noUi","parameterTypes":[] }, {"name":"port","parameterTypes":[] }, {"name":"uiPort","parameterTypes":[] }, {"name":"userEvents","parameterTypes":[] }, {"name":"verbose","parameterTypes":[] }, {"name":"zkPort","parameterTypes":[] }]
+},
+{
+  "name":"org.robolectric.Robolectric"
 },
 {
   "name":"org.rogach.scallop.ScallopConf",
@@ -1451,6 +1441,22 @@
 {
   "name":"scala.Symbol",
   "methods":[{"name":"apply","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"scala.collection.concurrent.CNodeBase",
+  "fields":[{"name":"csize"}]
+},
+{
+  "name":"scala.collection.concurrent.INodeBase",
+  "fields":[{"name":"mainnode"}]
+},
+{
+  "name":"scala.collection.concurrent.MainNode",
+  "fields":[{"name":"prev"}]
+},
+{
+  "name":"scala.collection.concurrent.TrieMap",
+  "fields":[{"name":"root"}]
 },
 {
   "name":"scala.reflect.ScalaSignature",
@@ -1491,34 +1497,10 @@
 {
   "name":"sun.misc.Unsafe",
   "allDeclaredFields":true,
-  "methods":[
-    {"name":"arrayBaseOffset","parameterTypes":["java.lang.Class"] }, 
-    {"name":"arrayIndexScale","parameterTypes":["java.lang.Class"] }, 
-    {"name":"copyMemory","parameterTypes":["long","long","long"] }, 
-    {"name":"copyMemory","parameterTypes":["java.lang.Object","long","java.lang.Object","long","long"] }, 
-    {"name":"getAndSetObject","parameterTypes":["java.lang.Object","long","java.lang.Object"] }, 
-    {"name":"getBoolean","parameterTypes":["java.lang.Object","long"] }, 
-    {"name":"getByte","parameterTypes":["long"] }, 
-    {"name":"getByte","parameterTypes":["java.lang.Object","long"] }, 
-    {"name":"getDouble","parameterTypes":["java.lang.Object","long"] }, 
-    {"name":"getFloat","parameterTypes":["java.lang.Object","long"] }, 
-    {"name":"getInt","parameterTypes":["long"] }, 
-    {"name":"getInt","parameterTypes":["java.lang.Object","long"] }, 
-    {"name":"getLong","parameterTypes":["long"] }, 
-    {"name":"getLong","parameterTypes":["java.lang.Object","long"] }, 
-    {"name":"getObject","parameterTypes":["java.lang.Object","long"] }, 
-    {"name":"objectFieldOffset","parameterTypes":["java.lang.reflect.Field"] }, 
-    {"name":"putBoolean","parameterTypes":["java.lang.Object","long","boolean"] }, 
-    {"name":"putByte","parameterTypes":["long","byte"] }, 
-    {"name":"putByte","parameterTypes":["java.lang.Object","long","byte"] }, 
-    {"name":"putDouble","parameterTypes":["java.lang.Object","long","double"] }, 
-    {"name":"putFloat","parameterTypes":["java.lang.Object","long","float"] }, 
-    {"name":"putInt","parameterTypes":["long","int"] }, 
-    {"name":"putInt","parameterTypes":["java.lang.Object","long","int"] }, 
-    {"name":"putLong","parameterTypes":["long","long"] }, 
-    {"name":"putLong","parameterTypes":["java.lang.Object","long","long"] }, 
-    {"name":"putObject","parameterTypes":["java.lang.Object","long","java.lang.Object"] }
-  ]
+  "methods":[{"name":"arrayBaseOffset","parameterTypes":["java.lang.Class"] }, {"name":"arrayIndexScale","parameterTypes":["java.lang.Class"] }, {"name":"copyMemory","parameterTypes":["long","long","long"] }, {"name":"copyMemory","parameterTypes":["java.lang.Object","long","java.lang.Object","long","long"] }, {"name":"getAndSetObject","parameterTypes":["java.lang.Object","long","java.lang.Object"] }, {"name":"getBoolean","parameterTypes":["java.lang.Object","long"] }, {"name":"getByte","parameterTypes":["long"] }, {"name":"getByte","parameterTypes":["java.lang.Object","long"] }, {"name":"getDouble","parameterTypes":["java.lang.Object","long"] }, {"name":"getFloat","parameterTypes":["java.lang.Object","long"] }, {"name":"getInt","parameterTypes":["long"] }, {"name":"getInt","parameterTypes":["java.lang.Object","long"] }, {"name":"getLong","parameterTypes":["long"] }, {"name":"getLong","parameterTypes":["java.lang.Object","long"] }, {"name":"getObject","parameterTypes":["java.lang.Object","long"] }, {"name":"objectFieldOffset","parameterTypes":["java.lang.reflect.Field"] }, {"name":"putBoolean","parameterTypes":["java.lang.Object","long","boolean"] }, {"name":"putByte","parameterTypes":["long","byte"] }, {"name":"putByte","parameterTypes":["java.lang.Object","long","byte"] }, {"name":"putDouble","parameterTypes":["java.lang.Object","long","double"] }, {"name":"putFloat","parameterTypes":["java.lang.Object","long","float"] }, {"name":"putInt","parameterTypes":["long","int"] }, {"name":"putInt","parameterTypes":["java.lang.Object","long","int"] }, {"name":"putLong","parameterTypes":["long","long"] }, {"name":"putLong","parameterTypes":["java.lang.Object","long","long"] }, {"name":"putObject","parameterTypes":["java.lang.Object","long","java.lang.Object"] }]
+},
+{
+  "name":"sun.reflect.Reflection"
 },
 {
   "name":"sun.security.pkcs12.PKCS12KeyStore",
@@ -1526,6 +1508,14 @@
 },
 {
   "name":"sun.security.pkcs12.PKCS12KeyStore$DualFormatPKCS12",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.DSA$SHA224withDSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.DSA$SHA256withDSA",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
@@ -1538,10 +1528,14 @@
 },
 {
   "name":"sun.security.provider.NativePRNG",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"<init>","parameterTypes":["java.security.SecureRandomParameters"] }]
 },
 {
   "name":"sun.security.provider.SHA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA224",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
@@ -1549,11 +1543,31 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"sun.security.provider.SHA5$SHA384",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA5$SHA512",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"sun.security.provider.X509Factory",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"sun.security.rsa.PSSParameters",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"sun.security.rsa.RSAKeyFactory$Legacy",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSAPSSSignature",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSASignature$SHA224withRSA",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
@@ -1566,6 +1580,10 @@
 },
 {
   "name":"sun.security.ssl.SSLContextImpl$DefaultSSLContext",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.ssl.SSLContextImpl$TLSContext",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {

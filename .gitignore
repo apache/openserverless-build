@@ -37,3 +37,4 @@ openwhisk-*/
 playground.*
 .secrets
 .DS_Store
+standalone/dist/openwhisk*

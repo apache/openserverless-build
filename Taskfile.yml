@@ -104,25 +104,37 @@ tasks:
       --trace-object-instantiation=ch.qos.logback.classic.Logger
       --enable-url-protocols=http,https
       -cp build/classes/scala/main:build/resources/main:build/dependency-libs/*
-      -H:ConfigurationFileDirectories=/workspaces/openserverless-controller/standalone/graal-config
-      -o /workspaces/openserverless-controller/standalone/exe/openwhisk-standalone.exe
-      org.apache.openwhisk.standalone.StandaloneOpenWhisk 
+      -H:ConfigurationFileDirectories=$PWD/../../../standalone/graal-config
+      -o $PWD/../../../standalone/dist/{{.EXEC_NAME}}
+      org.apache.openwhisk.standalone.StandaloneOpenWhisk      
+    vars:
+      EXEC_NAME: "${NATIVE_IMAGE_NAME:-openwhisk-standalone}"
 
   native:standalone-run:
-    dir: standalone/exe
+    dir: standalone/dist
     cmds:
-    - ./openwhisk-standalone.exe -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.standalone.host.internal="$(hostname -f)" --no-browser --disable-color-logging
+    - ./openwhisk-standalone -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.standalone.host.internal="$(hostname -f)" --no-browser
 
   native:standalone-config:
     deps:
     - compile:standalone  
     dir: openwhisk/core/standalone
     cmds:
-    - java -agentlib:native-image-agent=config-output-dir=../../standalone/graal-config      
+    - java -agentlib:native-image-agent=config-output-dir=../../../standalone/graal-config      
       -cp build/classes/scala/main:build/resources/main:build/dependency-libs/*      
       -Dwhisk.standalone.host.name="0.0.0.0"
       -Dwhisk.standalone.host.internal="$(hostname -f)"    
       org.apache.openwhisk.standalone.StandaloneOpenWhisk 
+
+  run:standalone:
+    deps:
+    - compile:standalone  
+    dir: openwhisk/core/standalone
+    cmds:
+    - java -cp build/classes/scala/main:build/resources/main:build/dependency-libs/*      
+      -Dwhisk.standalone.host.name="0.0.0.0"
+      -Dwhisk.standalone.host.internal="$(hostname -f)"    
+      org.apache.openwhisk.standalone.StandaloneOpenWhisk --no-browser     
 
   clean:
     ignore_error: true
