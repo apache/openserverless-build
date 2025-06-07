@@ -88,13 +88,14 @@ tasks:
       - test -f ../standalone/lib/openwhisk-standalone.jar
 
   native:standalone-libs:
+    deps:
+    - compile:standalone  
     dir: openwhisk
     cmds:
       - ./gradlew core:standalone:copyRuntimeLibs    
 
   native:standalone-build:
     deps:
-    - compile:standalone
     - native:standalone-libs   
     dir: openwhisk/core/standalone
     cmds:
