@@ -54,7 +54,7 @@ jobs:
           submodules: recursive
 
       - name: Setup CI
-        run: .github/cisetup.sh
+        run: bash .github/cisetup.sh
         shell: bash          
 
       - name: Set up JDK 17
