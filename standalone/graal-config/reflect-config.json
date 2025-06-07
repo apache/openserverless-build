@@ -1305,11 +1305,6 @@
   "queryAllPublicMethods":true
 },
 {
-  "name":"org.apache.openwhisk.core.entity.Binding",
-  "allDeclaredFields":true,
-  "queryAllPublicMethods":true
-},
-{
   "name":"org.apache.openwhisk.core.entity.CacheKey",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true
@@ -1376,11 +1371,6 @@
 },
 {
   "name":"org.apache.openwhisk.core.entity.WhiskPackage",
-  "allDeclaredFields":true,
-  "queryAllPublicMethods":true
-},
-{
-  "name":"org.apache.openwhisk.core.entity.WhiskPackagePut",
   "allDeclaredFields":true,
   "queryAllPublicMethods":true
 },
