@@ -55,10 +55,6 @@ jobs:
           distribution: 'graalvm'
           java-version: '17.0.9' 
 
-      - name: Install Native Image (GraalVM)
-        run: gu install native-image
-        shell: bash
-
       - name: Assign TAG from pull request
         if:  ${{ github.event_name == 'pull_request' }}
         run: |
