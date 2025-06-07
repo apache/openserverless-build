@@ -35,7 +35,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-22.04
             target: linux
             extension: ''
           - os: macos-latest

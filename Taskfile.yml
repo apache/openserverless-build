@@ -114,7 +114,7 @@ tasks:
   native:standalone-run:
     dir: standalone/dist
     cmds:
-    - ./openwhisk-standalone -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.standalone.host.internal="$(hostname -f)" --no-browser
+    - ./openwhisk-standalone -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.metrics.kamon-enabled=false --no-browser
 
   native:standalone-config:
     deps:
