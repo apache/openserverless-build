@@ -60,7 +60,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'graalvm'
-          java-version: '17' 
+          java-version: '17.0.9' 
 
       - name: Install Native Image (GraalVM)
         run: gu install native-image
