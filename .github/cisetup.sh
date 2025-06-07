@@ -16,4 +16,4 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-sudo sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
+sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
