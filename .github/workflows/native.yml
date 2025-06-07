@@ -76,8 +76,8 @@ jobs:
         shell: bash  
       - name: Assign native standalone executable name
         run: |
-          ARCH="${{ runner.arch }}"
-          PLATFORM="${{ matrix.platform }}"
+          ARCH=$(echo "${{ runner.arch }}" | tr '[:upper:]' '[:lower:]')
+          PLATFORM=$(echo "${{ matrix.target }}" | tr '[:upper:]' '[:lower:]')
           FILENAME="openwhisk-standalone-${PLATFORM}-${ARCH}${{ matrix.extension }}"          
           echo "NATIVE_IMAGE_NAME=$FILENAME" >> $GITHUB_ENV
         shell: bash  
