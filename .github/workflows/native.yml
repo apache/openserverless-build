@@ -38,9 +38,6 @@ jobs:
           - os: ubuntu-latest
             target: linux
             extension: ''
-          - os: windows-latest
-            target: windows
-            extension: '.exe'
           - os: macos-latest
             target: macos
             extension: ''
