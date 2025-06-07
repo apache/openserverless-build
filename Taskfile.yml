@@ -114,7 +114,9 @@ tasks:
   native:standalone-run:
     dir: standalone/dist
     cmds:
-    - ./openwhisk-standalone -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.metrics.kamon-enabled=false --no-browser
+    - ./openwhisk-standalone -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.standalone.host.internal="$(hostname -f)" --no-browser
+    env:
+      KAMON_ENABLED: false
 
   native:standalone-config:
     deps:
@@ -126,16 +128,6 @@ tasks:
       -Dwhisk.standalone.host.name="0.0.0.0"
       -Dwhisk.standalone.host.internal="$(hostname -f)"    
       org.apache.openwhisk.standalone.StandaloneOpenWhisk 
-
-  run:standalone:
-    deps:
-    - compile:standalone  
-    dir: openwhisk/core/standalone
-    cmds:
-    - java -cp build/classes/scala/main:build/resources/main:build/dependency-libs/*      
-      -Dwhisk.standalone.host.name="0.0.0.0"
-      -Dwhisk.standalone.host.internal="$(hostname -f)"    
-      org.apache.openwhisk.standalone.StandaloneOpenWhisk --no-browser     
 
   clean:
     ignore_error: true
@@ -290,3 +282,22 @@ tasks:
     dir: openwhisk
     cmds:
     - ./gradlew distDocker -PdockerMultiArchBuild=true -PdockerRegistry={{.DOCKER_REGISTRY}} -PdockerImagePrefix=openwhisk2 -PdockerImageTag={{.TAG}}
+
+  run:standalone-docker:
+    cmds:
+      - >
+       docker run -ti
+       -p 3232:3232 -p 3233:3233
+       -v /var/run/docker.sock:/var/run/docker.sock
+       {{.DOCKER_REGISTRY}}/openwhisk2/standalone:{{.TAG}}
+    interactive: true   
+
+  run:standalone:
+    deps:
+    - native:standalone-libs 
+    dir: openwhisk/core/standalone
+    cmds:
+    - java -cp build/classes/scala/main:build/resources/main:build/dependency-libs/*      
+      -Dwhisk.standalone.host.name="0.0.0.0"
+      -Dwhisk.standalone.host.internal="$(hostname -f)"
+      org.apache.openwhisk.standalone.StandaloneOpenWhisk --no-browser

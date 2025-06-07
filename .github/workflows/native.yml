@@ -19,14 +19,9 @@
 name: Build OpenServerless OpenWhisk 2 Standalone native executable
 
 on:
-  push:
-    tags:
-    - '[0-9]*'
-    branches-ignore:
-    - '*'
   workflow_dispatch:
     inputs:
-      version:
+      tag:
         description: 'Release version (e.g., v1.2.3)'
         required: true
 jobs:
