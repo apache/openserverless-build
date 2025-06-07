@@ -78,7 +78,7 @@ jobs:
         run: |
           ARCH=$(echo "${{ runner.arch }}" | tr '[:upper:]' '[:lower:]')
           PLATFORM=$(echo "${{ matrix.target }}" | tr '[:upper:]' '[:lower:]')
-          FILENAME="openwhisk-standalone-${PLATFORM}-${ARCH}${{ matrix.extension }}"          
+          FILENAME="openwhisk-standalone-${PLATFORM}-${ARCH}-${IMG_TAG}${{ matrix.extension }}"
           echo "NATIVE_IMAGE_NAME=$FILENAME" >> $GITHUB_ENV
         shell: bash  
       - name: Native Image
