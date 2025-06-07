@@ -100,7 +100,7 @@ tasks:
     dir: openwhisk/core/standalone
     cmds:
     - native-image
-      --initialize-at-run-time=io.netty,akka,kamon     
+      --initialize-at-run-time=io.netty  
       --no-fallback --report-unsupported-elements-at-runtime
       --trace-object-instantiation=ch.qos.logback.classic.Logger
       --enable-url-protocols=http,https
@@ -114,7 +114,7 @@ tasks:
   native:standalone-run:
     dir: standalone/dist
     cmds:
-    - ./openwhisk-standalone -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.standalone.host.internal="$(hostname -f)" --no-browser
+    - ./openwhisk-standalone -Dwhisk.standalone.host.name="0.0.0.0" -Dwhisk.standalone.host.internal="$(hostname -f)" -Dkamon.auto-start=no --no-browser
     env:
       KAMON_ENABLED: false
 
