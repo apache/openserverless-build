@@ -14,18 +14,10 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
+#
 
-github:
-  rulesets:
-    - name: "Default Branch Protection"
-      type: branch
-      branches:
-        includes:
-          - "~DEFAULT_BRANCH"
-          - "release/*"
-          - "rel/*"
-        excludes: []
-      bypass_teams:
-        - root
-      restrict_deletion: true
-      restrict_force_push: true
+* text=auto eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary

@@ -345,6 +345,9 @@ tasks:
       if test "${OPENWHISK_BUILDCONTAINER:-}" = "1"; then
         task buildx-all:local
       else
+        if docker ps | grep vsc-build
+        then docker rm -f $(docker ps | awk '/vsc-build/{print $1}')
+        fi
         printf '%s\n' 'mkdir -p /tmp/openserverless-docker-config && printf "{}\n" >/tmp/openserverless-docker-config/config.json && OPENWHISK_BUILDCONTAINER=1 DOCKER_CONFIG=/tmp/openserverless-docker-config TAG="{{.TAG}}" task buildx-all:local' | ops ide devcontainer
       fi
 
