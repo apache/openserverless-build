@@ -72,6 +72,10 @@ vars:
   COMMON_IMAGE: openserverless-wsk-scala
   ACT: "nothing"
   S: ""
+  GRADLE_VERSION: 6.9.1
+  GRADLE_WRAPPER_JAR: openwhisk/gradle/wrapper/gradle-wrapper.jar
+  GRADLE_WRAPPER_URL: https://raw.githubusercontent.com/gradle/gradle/v6.9.1/gradle/wrapper/gradle-wrapper.jar
+  GRADLE_WRAPPER_SHA256: e996d452d2645e70c01c11143ca2d3742734a28da2bf61f25c82bdc288c9e637
 
 tasks:
 
@@ -91,6 +95,30 @@ tasks:
           echo "Refresh the build checkout and make sure the build-local branch includes openwhisk/common/scala."
           exit 1
         fi
+
+  gradle-wrapper:
+    desc: |
+      Download the Gradle wrapper jar (not distributed in source form) and
+      verify its SHA-256 against the official Gradle {{.GRADLE_VERSION}} release.
+    silent: true
+    status:
+      - test -f "{{.GRADLE_WRAPPER_JAR}}"
+      - test "$(shasum -a 256 "{{.GRADLE_WRAPPER_JAR}}" | cut -d' ' -f1)" = "{{.GRADLE_WRAPPER_SHA256}}"
+    cmds:
+      - mkdir -p "$(dirname "{{.GRADLE_WRAPPER_JAR}}")"
+      - |
+        echo "Downloading gradle-wrapper.jar {{.GRADLE_VERSION}}..."
+        curl -fsSL -o "{{.GRADLE_WRAPPER_JAR}}.tmp" "{{.GRADLE_WRAPPER_URL}}"
+        ACTUAL="$(shasum -a 256 "{{.GRADLE_WRAPPER_JAR}}.tmp" | cut -d' ' -f1)"
+        if test "$ACTUAL" != "{{.GRADLE_WRAPPER_SHA256}}"; then
+          rm -f "{{.GRADLE_WRAPPER_JAR}}.tmp"
+          echo "ERROR: checksum mismatch for gradle-wrapper.jar"
+          echo "  expected: {{.GRADLE_WRAPPER_SHA256}}"
+          echo "  actual:   $ACTUAL"
+          exit 1
+        fi
+        mv "{{.GRADLE_WRAPPER_JAR}}.tmp" "{{.GRADLE_WRAPPER_JAR}}"
+        echo "OK: {{.GRADLE_WRAPPER_JAR}}"
 
   # deprecated - use task tag
   image-tag:
@@ -132,6 +160,8 @@ tasks:
       - echo "standalone:" ${MY_STANDALONE_IMAGE:-{{.STANDALONE_IMAGE}}}:{{.TAG}}
 
   compile:controller:
+    deps:
+    - gradle-wrapper
     dir: openwhisk
     cmds:
       - ./gradlew  :core:controller:distTar
@@ -139,6 +169,8 @@ tasks:
       - test -f core/controller/build/distributions/controller.tar
 
   compile:invoker:
+    deps:
+    - gradle-wrapper
     dir: openwhisk
     cmds:
       - ./gradlew  :core:invoker:distTar
@@ -146,6 +178,8 @@ tasks:
       - test -f core/invoker/build/distributions/invoker.tar
 
   compile:scheduler:
+    deps:
+    - gradle-wrapper
     dir: openwhisk
     cmds:
       - ./gradlew  :core:scheduler:distTar
@@ -153,6 +187,8 @@ tasks:
       - test -f core/scheduler/build/distributions/scheduler.tar
 
   compile:standalone:
+    deps:
+    - gradle-wrapper
     dir: openwhisk
     cmds:
       - ./gradlew :core:standalone:build
@@ -163,6 +199,7 @@ tasks:
 
   native:standalone-libs:
     deps:
+    - gradle-wrapper
     - compile:standalone
     dir: openwhisk
     cmds:
@@ -512,6 +549,7 @@ tasks:
   distdocker:local:
     deps:
     - ensure-openwhisk
+    - gradle-wrapper
     dir: openwhisk
     cmds:
     - ./gradlew distDocker -PdockerMultiArchBuild=true {{.DIST_DOCKER_REGISTRY_ARG}} -PdockerImagePrefix=openwhisk2 -PdockerImageTag={{.TAG}}
