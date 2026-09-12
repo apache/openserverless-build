@@ -21,32 +21,40 @@ header:
     copyright-owner: Apache Software Foundation
 
   paths-ignore:
-    - '**/.vscode/**'
-    - '.git-hooks/*'
-    - '**/LICENSE'
-    - '**/DISCLAIMER'
-    - '**/NOTICE'
-    - 'openwhisk/**'
-    - 'openwhisk-*/**'
-    - '**/*.patch'
-    - 'launch.json'
-    - 'go.sum'
-    - '**/auth.*'
-    - '_*'
-    - '.env.dist'
-    - '.tag'
-    - 'Chart.lock'
-    - '.helmignore'
-    - '.gitkeep'
-    - '**/*.md.gotmpl'
+    # - '**/.vscode/**'
+    # - '.git-hooks/*'
+    - '**/LICENSE*'
+    - '**/DISCLAIMER*'
+    - '**/NOTICE*'
+    - openwhisk/gradlew.bat
+    - openwhisk/gradlew
+    - 'openwhisk/tests/**'
+    - 'openwhisk/tools/**'
+    - 'openwhisk/ansible/**'
+    - 'openwhisk/.github/**'
+    - 'openwhisk/docs/**'
+    - 'openwhisk/docs/**'
     - '**/*.json'
-    - '**/default.conf'
-    - '**/*.txt'
-    - '.gitmodules'
+
+    #- '**/*.patch'
+    #- 'launch.json'
+    #- 'go.sum'
+    #- '**/auth.*'
+    #- '_*'
+    #- '.env.dist'
+    #- '.tag'
+    #- 'Chart.lock'
+    #- '.helmignore'
+    #- '.gitkeep'
+    #- '**/*.md.gotmpl'
+    #- '**/*.json'
+    #- '**/default.conf'
+    #- '**/*.txt'
+    #- '.gitmodules'
 
 
- 
+
 dependency:
   files:
     - go.mod
-    - package.json 
+    - package.json
