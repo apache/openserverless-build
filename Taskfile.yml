@@ -120,6 +120,22 @@ tasks:
         mv "{{.GRADLE_WRAPPER_JAR}}.tmp" "{{.GRADLE_WRAPPER_JAR}}"
         echo "OK: {{.GRADLE_WRAPPER_JAR}}"
 
+  legal-files:
+    desc: |
+      Stage the top-level LICENSE, NOTICE and DISCLAIMER into the Docker build
+      contexts so they can be COPYed into the convenience binary images.
+    silent: true
+    sources:
+      - LICENSE
+      - NOTICE
+      - DISCLAIMER
+    cmds:
+      - |
+        for dir in openwhisk/common/scala standalone; do
+          cp LICENSE NOTICE DISCLAIMER "$dir/"
+        done
+        echo "OK: staged LICENSE, NOTICE, DISCLAIMER into build contexts"
+
   # deprecated - use task tag
   image-tag:
     desc: "[deprecated] use task tag"
@@ -320,6 +336,8 @@ tasks:
       esac
 
   build:scala:
+    deps:
+    - legal-files
     cmds:
       - task: docker-build
         vars:
@@ -363,6 +381,7 @@ tasks:
   build:standalone:
     deps:
     - compile:standalone
+    - legal-files
     cmds:
       - task: docker-build-standalone
         vars:

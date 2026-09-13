@@ -201,18 +201,188 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
+-----------------------------------------------------------------------------
 
-========================================================================
+APACHE OPENSERVERLESS SUBCOMPONENTS
+
+The Apache OpenServerless (Incubating) convenience binaries -- the container
+images built from this repository -- include a number of subcomponents with
+separate copyright notices and license terms. Your use of these subcomponents
+is subject to the terms and conditions of the following licenses.
+
+
+=============================================================================
 Apache License 2.0
-========================================================================
+=============================================================================
 
-This distribution bundles the following components, which are available under an Apache License 2.0 (https://opensource.org/licenses/Apache-2.0).
-Spray Caching 1.3.4 (io.spray:spray-caching_2.11:1.3.4 - http://spray.io/documentation/1.2.4/spray-caching/)
-  ConcurrentMapBackedCache.scala under common/scala/src/main/scala/org/apache/openwhisk/core/database/ contains implementation
-  from Spray's [[spray.caching.Cache]] and [[spray.caching.SimpleLruCache]] respectively.
-  License included at licenses/LICENSE-spray.txt, or https://github.com/spray/spray/blob/master/LICENSE
+The following bundled components are available under the Apache License,
+Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0).
+
+Apache OpenWhisk
+  The OpenWhisk controller, invoker, scheduler, standalone and user-events
+  service code, built from the openwhisk/ directory of this repository.
+  Copyright 2016-2026 The Apache Software Foundation
+
+Apache Kafka clients 2.4.0 (org.apache.kafka:kafka-clients)
+Apache ZooKeeper 3.4.11 (org.apache.zookeeper:zookeeper)
+Apache Curator 4.0.0 (org.apache.curator:curator-recipes)
+Apache HttpComponents HttpClient 4.5.5 (org.apache.httpcomponents:httpclient)
+Apache Commons Codec 1.9 (commons-codec:commons-codec)
+Apache Commons IO 2.6 (commons-io:commons-io)
+Apache Commons Collections 3.2.2 (commons-collections:commons-collections)
+  Copyright The Apache Software Foundation
+
+Scala Library 2.12.10 (org.scala-lang:scala-library)
+  Copyright (c) 2002-2020 EPFL, Copyright (c) 2011-2020 Lightbend, Inc.
+  https://github.com/scala/scala/blob/v2.12.10/LICENSE
+
+Akka 2.6.12 (com.typesafe.akka:akka-actor, akka-stream, akka-slf4j,
+  akka-cluster, akka-cluster-metrics, akka-cluster-tools,
+  akka-distributed-data, akka-remote, akka-protobuf, akka-coordination,
+  akka-discovery, akka-persistence, akka-cluster-sharding)
+Akka HTTP 10.2.4 (com.typesafe.akka:akka-http-core, akka-http-spray-json,
+  akka-parsing, akka-http2-support)
+Akka Management 1.0.5 (com.lightbend.akka.management,
+  com.lightbend.akka.discovery)
+Alpakka 1.1.2 (com.lightbend.akka:akka-stream-alpakka-file,
+  akka-stream-alpakka-s3)
+  Copyright (C) 2009-2021 Lightbend Inc. <https://www.lightbend.com>
+  Akka 2.6.x is the last version distributed under the Apache License 2.0.
+
+spray-json 1.3.5 (io.spray:spray-json)
   Copyright (C) 2011-2015 the spray project <http://spray.io>
 
-This product bundles the files gradlew and gradlew.bat from Gradle v5.5
-which are distributed under the Apache License, Version 2.0.
-For details see ./gradlew and ./gradlew.bat.
+Spray Caching 1.3.4 (io.spray:spray-caching_2.11)
+  ConcurrentMapBackedCache.scala under
+  openwhisk/common/scala/src/main/scala/org/apache/openwhisk/core/database/
+  contains implementations derived from Spray's [[spray.caching.Cache]] and
+  [[spray.caching.SimpleLruCache]] respectively.
+  License included at openwhisk/licenses/LICENSE-spray.txt, or
+  https://github.com/spray/spray/blob/master/LICENSE
+  Copyright (C) 2011-2015 the spray project <http://spray.io>
+
+PureConfig 0.11.1 (com.github.pureconfig:pureconfig)
+fastparse 2.3.0 (com.lihaoyi:fastparse)
+Caffeine 2.6.2 (com.github.ben-manes.caffeine:caffeine)
+java-uuid-generator 3.1.3 (com.fasterxml.uuid:java-uuid-generator)
+Kubernetes & OpenShift Java Client 4.10.3 (io.fabric8:kubernetes-client)
+Kamon 2.1.12 (io.kamon:kamon-core, kamon-statsd, kamon-system-metrics,
+  kamon-prometheus, kamon-datadog)
+etcd-java 0.0.13 (com.ibm.etcd:etcd-java)
+OpenTracing 0.31.0 (io.opentracing:opentracing-api, opentracing-util,
+  io.opentracing.brave:brave-opentracing)
+Zipkin Reporter 2.6.1 (io.zipkin.reporter2:zipkin-reporter,
+  zipkin-sender-okhttp3)
+RxJava 1.3.8 (io.reactivex:rxjava, rxjava-reactive-streams 1.2.1)
+Azure Cosmos DB 2.6.2 (com.microsoft.azure:azure-cosmosdb)
+Azure Storage Blob 12.7.0 (com.azure:azure-storage-blob)
+AWS SDK for Java 1.11.517 (com.amazonaws:aws-java-sdk-cloudfront)
+elastic4s 6.7.4 (com.sksamuel.elastic4s:elastic4s-http)
+MongoDB Scala Driver 2.7.0 (org.mongodb.scala:mongo-scala-driver)
+akka-kryo-serialization 1.0.0 (io.altoo:akka-kryo-serialization)
+akka-http-cors 0.4.2 (ch.megard:akka-http-cors)
+embedded-kafka 2.4.0 (io.github.embeddedkafka:embedded-kafka)
+SLF4J bridges 1.7.25 (org.slf4j:jcl-over-slf4j, log4j-over-slf4j)
+
+Docker CLI 18.06.3-ce and docker-runc
+  Static binaries downloaded into the controller and invoker images from
+  https://download.docker.com/linux/static/stable/
+  Copyright 2013-2018 Docker, Inc.
+
+Docker CE CLI (standalone image, installed from https://download.docker.com/)
+  Copyright 2013-2020 Docker, Inc.
+
+Apache OpenWhisk CLI (wsk) 1.2.0
+  Downloaded into the standalone image from
+  https://github.com/apache/openwhisk-cli/releases
+  Copyright 2016-2020 The Apache Software Foundation
+
+Swagger UI 3.6.0
+  Bundled into the controller image.
+  Copyright 2020 SmartBear Software <https://swagger.io/>
+  https://github.com/swagger-api/swagger-ui/blob/master/LICENSE
+
+Gradle wrapper scripts gradlew and gradlew.bat from Gradle v5.5,
+Gradle wrapper JAR from Gradle v6.9.1 (downloaded at build time)
+  Copyright 2007-2019 Gradle, Inc. <https://gradle.org/>
+  For details see openwhisk/gradlew and openwhisk/gradlew.bat.
+
+
+=============================================================================
+MIT License
+=============================================================================
+
+The following bundled components are available under the MIT License
+(https://opensource.org/licenses/MIT).
+
+SLF4J API 1.7.25 (org.slf4j:slf4j-api)
+  Copyright (c) 2004-2017 QOS.ch
+  https://www.slf4j.org/license.html
+
+Scallop 3.3.2 (org.rogach:scallop)
+  Copyright (c) 2012-2019 Platon Pronko and Chris Hodapp
+
+
+=============================================================================
+Eclipse Public License 1.0 / GNU Lesser General Public License 2.1
+=============================================================================
+
+The following bundled components are dual-licensed under the Eclipse Public
+License, Version 1.0 (https://www.eclipse.org/legal/epl-v10.html) and the GNU
+Lesser General Public License, Version 2.1
+(https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html). They are used as
+unmodified, separately-distributed libraries and are dynamically linked at
+runtime.
+
+Logback 1.2.3 (ch.qos.logback:logback-classic, logback-core)
+  Copyright (C) 1999-2017 QOS.ch
+
+
+=============================================================================
+Creative Commons Attribution 2.5 / BSD 3-Clause
+=============================================================================
+
+JSR 305 Annotations 3.0.2 (com.google.code.findbugs:jsr305)
+  Available under the Creative Commons Attribution 2.5 License
+  (https://creativecommons.org/licenses/by/2.5/), with the FindBugs
+  annotations released under the BSD 3-Clause License.
+
+
+=============================================================================
+GNU General Public License, version 2, with the Classpath Exception
+=============================================================================
+
+The container images bundle a Java runtime environment. It is licensed under
+the GNU General Public License, version 2, with the Classpath Exception
+(https://openjdk.org/legal/gplv2+ce.html), which permits linking with
+independent modules such as the Apache-licensed software in this
+distribution without those modules becoming subject to the GPL.
+
+Eclipse Temurin OpenJDK 11.0.17+8
+  Bundled into the openserverless-wsk-scala base image, and thereby into the
+  controller, invoker, scheduler, standalone and user-events images.
+  Downloaded from https://github.com/adoptium/temurin11-binaries/releases
+  Copyright (c) Oracle and/or its affiliates, and Eclipse Adoptium
+  contributors.
+  Source: https://github.com/adoptium/jdk11u
+
+Amazon Corretto 11 (java-11-amazon-corretto-jdk)
+  Bundled into the openserverless-wsk-standalone image.
+  Installed from https://apt.corretto.aws
+  Copyright (c) Amazon.com, Inc. or its affiliates.
+  Source: https://github.com/corretto/corretto-11
+
+
+=============================================================================
+Operating system base images
+=============================================================================
+
+The container images are built on Ubuntu base images (ubuntu:22.04 for the
+service images, ubuntu:20.04 for the standalone image). These images contain
+software distributed under a variety of free and open source licenses,
+including the GNU General Public License. Canonical Ltd. publishes the
+Ubuntu base images; the licenses of the individual packages are recorded in
+/usr/share/doc/<package>/copyright inside each image, and the corresponding
+source is available from https://archive.ubuntu.com/ubuntu/.
+
+Ubuntu is a registered trademark of Canonical Ltd.
