@@ -40,3 +40,6 @@ RUN chmod +x transformEnvironment.sh
 
 COPY copyJMXFiles.sh /
 RUN chmod +x copyJMXFiles.sh
+
+# Legal files for the convenience binary (inherited by all derived images)
+COPY LICENSE NOTICE DISCLAIMER /licenses/
