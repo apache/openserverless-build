@@ -15,6 +15,11 @@
  * limitations under the License.
  */
 
+/*
+ * OwSink.combine is derived from Sink.combine in Akka 2.5.6:
+ * Copyright (C) 2014-2017 Lightbend Inc. <http://www.lightbend.com>
+ */
+
 package org.apache.openwhisk.core.containerpool.logging
 
 import java.nio.file.{Files, Path, Paths}
