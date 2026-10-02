@@ -44,6 +44,7 @@ RUN WSK_VERSION=1.2.0 && \
 WORKDIR /home
 ENV HOME=/home
 RUN mkdir -p /home/etc/ /home/lib/ /home/bin/
+COPY LICENSE NOTICE DISCLAIMER /licenses/
 ADD lib/* /home/lib/
 ADD bin/* /home/bin/
 ADD etc/* /home/etc/
