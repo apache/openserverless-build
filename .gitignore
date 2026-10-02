@@ -51,3 +51,5 @@ openwhisk/gradle/wrapper/gradle-wrapper.jar
 /standalone/NOTICE
 /standalone/DISCLAIMER
 /.task/
+openwhisk
+opemwhisk-patch.tar

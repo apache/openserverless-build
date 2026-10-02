@@ -76,6 +76,7 @@ vars:
   GRADLE_WRAPPER_JAR: openwhisk/gradle/wrapper/gradle-wrapper.jar
   GRADLE_WRAPPER_URL: https://raw.githubusercontent.com/gradle/gradle/v6.9.1/gradle/wrapper/gradle-wrapper.jar
   GRADLE_WRAPPER_SHA256: e996d452d2645e70c01c11143ca2d3742734a28da2bf61f25c82bdc288c9e637
+  OPENWHISK_HASH: "a7ed8b5"
 
 tasks:
 
@@ -87,14 +88,15 @@ tasks:
 
   ensure-openwhisk:
     silent: true
+    env:
+      HASH: "{{.OPENWHISK_HASH}}"
     cmds:
-      - |
-        if ! test -d openwhisk/common/scala; then
-          echo "ERROR: openwhisk directory is missing or incomplete."
-          echo "This branch vendors openwhisk as a regular directory, not as a submodule."
-          echo "Refresh the build checkout and make sure the build-local branch includes openwhisk/common/scala."
-          exit 1
-        fi
+      - git clone https://github.com/apache/openwhisk
+      - git -C openwhisk checkout $HASH -b openserverless
+      - cd openwhisk-patch && tar cvf ../openwhisk-patch.tar *
+      - cd openwhisk && tar xvf ../openwhisk-patch.tar
+    status:
+      - test -d openwhisk
 
   gradle-wrapper:
     desc: |
