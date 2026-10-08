@@ -29,9 +29,9 @@ aarch64="https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11
 arch=$(arch) ; JDK=${!arch} ; curl -sL $JDK | tar xzvf - -C /usr/local ;\
 ln -sf /usr/local/jdk-*/bin/java /usr/bin/java'
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
 
 RUN mkdir /logs
 
