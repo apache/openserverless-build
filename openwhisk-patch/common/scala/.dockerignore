@@ -1,0 +1,7 @@
+*
+!transformEnvironment.sh
+!copyJMXFiles.sh
+!build/distributions
+!LICENSE
+!NOTICE
+!DISCLAIMER

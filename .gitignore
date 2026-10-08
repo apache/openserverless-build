@@ -29,7 +29,8 @@ standalone/lib/
 standalone/exe/
 export/
 results/
-openwhisk-*/
+/openwhisk/
+/openwhisk-orig/
 .env
 .git-hooks/
 .tag
@@ -43,11 +44,4 @@ standalone/dist/reports
 # gradle wrapper jar is a binary - downloaded by "task gradle-wrapper"
 openwhisk/gradle/wrapper/gradle-wrapper.jar
 
-# Legal files staged into Docker build contexts by `task legal-files`
-/openwhisk/common/scala/LICENSE
-/openwhisk/common/scala/NOTICE
-/openwhisk/common/scala/DISCLAIMER
-/standalone/LICENSE
-/standalone/NOTICE
-/standalone/DISCLAIMER
 /.task/
