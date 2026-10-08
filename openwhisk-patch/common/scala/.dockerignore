@@ -15,4 +15,10 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-Simple placeholder to ensure that this foler is being created into Github
+*
+!transformEnvironment.sh
+!copyJMXFiles.sh
+!build/distributions
+!LICENSE
+!NOTICE
+!DISCLAIMER

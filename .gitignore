@@ -29,7 +29,8 @@ standalone/lib/
 standalone/exe/
 export/
 results/
-openwhisk-*/
+/openwhisk/
+/openwhisk-orig/
 .env
 .git-hooks/
 .tag
@@ -39,3 +40,8 @@ playground.*
 .DS_Store
 standalone/dist/openwhisk*
 standalone/dist/reports
+
+# gradle wrapper jar is a binary - downloaded by "task gradle-wrapper"
+openwhisk/gradle/wrapper/gradle-wrapper.jar
+
+/.task/
