@@ -198,6 +198,7 @@ tasks:
       - cp bin/openwhisk-standalone.jar ../standalone/lib/
     status:
       - test -f ../standalone/lib/openwhisk-standalone.jar
+      - test -f core/standalone/build/libs/openwhisk-standalone-1.0.0-SNAPSHOT.jar
 
   native:standalone-libs:
     deps:
@@ -523,6 +524,7 @@ tasks:
 
   buildx-and-push:
     - task: docker-setup
+    - task: ensure-openwhisk
     - task: build:scala
       vars:
          ACT: "buildx-push"
