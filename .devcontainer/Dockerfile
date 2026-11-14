@@ -22,8 +22,8 @@ ARG TARGETPLATFORM
 
 # configure dpkg && timezone
 ENV TZ=Europe/London
-RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections ;\
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime ;\
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone
 # add docker and java (amazon corretto) repos
 RUN apt-get update && apt-get -y upgrade &&\
@@ -35,17 +35,14 @@ RUN apt-get update && apt-get -y upgrade &&\
     unzip vim telnet less sudo git \
     python3 python3-pip gcc g++ make \
     silversearcher-ag zip lsof netcat
-# install java (amazon corretto) and libs
-RUN pip3 install --upgrade pip setuptools six 
-# python2 stuff
-RUN ln -sf /usr/bin/python3 /usr/bin/python ;\
-    curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py ;\
-    python get-pip.py ;\
-    python -m pip install docker==5.0.0 ansible==2.8.18 jinja2==3.0.1 couchdb==1.2 httplib2==0.19.1 requests==2.25.1 six==1.16.0 flake8
+# Python 3 tooling and build dependencies
+RUN python3 -m pip install --upgrade pip setuptools six
+RUN ln -sf /usr/bin/python3 /usr/bin/python && \
+    python3 -m pip install docker==5.0.0 ansible==2.8.18 jinja2==3.0.1 couchdb==1.2 httplib2==0.19.1 requests==2.25.1 six==1.16.0 flake8
 # docker
-RUN . /etc/os-release ;\
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu ${VERSION_CODENAME} stable" > /etc/apt/sources.list.d/docker.list ;\
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor > /usr/share/keyrings/docker-archive-keyring.gpg ;\
+RUN . /etc/os-release && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu ${VERSION_CODENAME} stable" > /etc/apt/sources.list.d/docker.list && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor > /usr/share/keyrings/docker-archive-keyring.gpg && \
     apt-get update && apt-get -y install docker-ce-cli docker-buildx-plugin
 # protobuf setup
 RUN apt-get -y install protobuf-compiler
@@ -73,8 +70,7 @@ RUN if [ "$TARGETPLATFORM" = "linux/arm64" ]; then \
     mkdir -p $GRAALVM_HOME && \
     tar -xvzf /tmp/graalvm.tar.gz --strip-components=1 -C $GRAALVM_HOME && \
     rm /tmp/graalvm.tar.gz && \
-    # Install Native Image
-    gu install native-image && \
+    # Native Image is already bundled with GraalVM 17.0.9
     # Clean up
     apt-get clean
 
@@ -104,13 +100,13 @@ ENV JAVA_HOME=$JAVA11_HOME
 ENV PATH=$JAVA_HOME/bin:$GRAALVM_HOME/bin:$PATH
 RUN java -version && javac -version && native-image --version
     
-RUN useradd -m openserverless -s /bin/bash ;\
+RUN useradd -m openserverless -s /bin/bash && \
     echo "openserverless ALL=(ALL:ALL) NOPASSWD: ALL" >>/etc/sudoers
 # node
-RUN curl -sL https://deb.nodesource.com/setup_22.x | bash ;\
-    apt-get install -y nodejs ;\
-    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg >/dev/null ;\
-    echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list ;\
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash && \
+    apt-get install -y nodejs && \
+    curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr/share/keyrings/yarnkey.gpg >/dev/null && \
+    echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && sudo apt-get install yarn
 # task
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
