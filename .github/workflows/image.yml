@@ -59,9 +59,9 @@ jobs:
               echo "   Settings -> Secrets and variables -> Actions -> New repository secret"
               echo "5. Name it exactly **GHCR_TOKEN** and paste the token as the value"
               echo
-              echo "Then re-run this workflow. See BUILD.md section 2.6 for details."
+              echo "Then re-run this workflow. See the Publishing images section of DEVEL.md for details."
             } >> "$GITHUB_STEP_SUMMARY"
-            echo "::error title=Missing GHCR_TOKEN::This repository publishes multiple images and needs a PAT with write:packages stored as the secret GHCR_TOKEN. See the job summary or BUILD.md section 2.6 for step-by-step instructions."
+            echo "::error title=Missing GHCR_TOKEN::This repository publishes multiple images and needs a PAT with write:packages stored as the secret GHCR_TOKEN. See the job summary or the Publishing images section of DEVEL.md for step-by-step instructions."
             exit 1
           fi
       #- name: Remove unnecessary files
